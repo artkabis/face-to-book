@@ -9,6 +9,7 @@ function Login() {
         height={400}
         width={400}
         objectFit="contain"
+        alt="poster image"
       />
       <h1
         className="p-5 bg-blue-500 rounded-full text-white text-center w-1/6 cursor-pointer"

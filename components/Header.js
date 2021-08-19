@@ -28,6 +28,7 @@ function Header() {
           width="40"
           height="40"
           layout="fixed"
+          alt="Logo FB"
         />
         <div className="hidden md:inline-flex ml-2 items-center rounded-full bg-gray-100 p-2">
           <SearchIcon className="h-6 text-gray-600" />
@@ -58,6 +59,7 @@ function Header() {
           width="40"
           height="40"
           layout="fixed"
+          alt="Session user image"
         />
         <p className="hidden lg:inline-flex text-sm whitespace-nowrap font-semibold pr-3">
           {session.user.name}
