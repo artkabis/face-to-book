@@ -1,0 +1,90 @@
+Formation face-to-book
+
+
+Installation :
+
+Création du repo face-to-book
+ouverture de VS-Code
+NPM : 
+npx create-netx-app .
+npx tailwindcss init -p
+
+
+
+
+sur un autre terminal yarn : 
+si yarn n'est pas installé : npm install --global yarn
+
+puis :
+yarn i  @heroicons/react
+
+
+Gestion de tailwind :
+création (ou modification) du fichier tailwind.config.css
+
+( sachant que certain éléments ne sont pas natifs, exemple avec active border)
+
+module.exports = {
+  node: "jit",
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {
+      backgroundColor: ["active"],
+      borderWidth: ["hover", "focus", "active"],
+      borderColor: ["hover", "focus", "active", "group-hover"],
+      textColor: ["responsive", "hover", "focus", "group-hover"],
+    },
+  },
+  plugins: [],
+};
+
+
+concernant le paramètre active de HeaderIcon si celui-ci doit être actif, il faudra donc mettre la prop active sur true
+<HeaderIcon active={true} Icon={HomeIcon} />
+
+
+
+Ajouter du css personnalisé dans Tailwind via layer
+@layer components {
+    .icon{
+        @apply hidden xl:inline-flex p-2 h-10 w-10 bg-gray-200 rounded-full text-gray-100
+    }
+}
+
+
+
+
+Utlisation de l'authentification via nextauth :
+- documentation : https://next-auth.js.org/getting-started/example
+- création de repo auth dans api
+- installation via yarn add next-auth
+
+
+Récupérer le script de la do est modifier le providers: 
+
+import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
+
+export default NextAuth({
+  // Configure one or more authentication providers
+  providers: [
+    Providers.Facebook({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    }),
+    // ...add more providers here
+  ],
+
+  // A database is optional, but required to persist accounts in a database
+  database: process.env.DATABASE_URL,
+});
+
+
+
+
+
+
